@@ -1,0 +1,50 @@
+﻿<div class="row search-vehicles" style="margin-left: 0px; margin-bottom: 20px;">
+    <button class="btn btn-lg btn-secondary" ng-click="filter(1)"><div class="fa fa-car"></div>   CARS</button>
+    <button class="btn btn-lg btn-secondary" ng-click="filter(3)" ><div class="fa fa-bus"></div>   BUSES</button>
+    <button class="btn btn-lg btn-secondary" ng-click="filter(2)" ><div class="fa fa-train"></div>   TRAINS</button>
+    <button class="btn btn-lg btn-secondary" ng-click="filter(5)" ><div class="fa fa-bicycle"></div>   BICYCLES</button>
+    <button class="btn btn-lg btn-secondary" ng-click="filter(4)" ><div class="fa fa-motorcycle"></div>   MOTORCYCLES</button>
+    <button class="btn btn-lg btn-secondary" ng-click="filter(6)" ><div class="fa fa-truck"></div>   VAN</button>
+</div>
+<div class="tab-render" style="border-top-left-radius:10px; border-top-right-radius:10px; padding:30px; height:auto;">
+    <div class="row action-panel">
+        <div class="col-md-8">
+            <span class="input-group-btn" style="width: 30%; display:inline;">
+                <button class="btn btn-default" ng-click="clearSearch()" title="Clear search text">
+                    <span class="glyphicon glyphicon-refresh"></span> ALL VEHICLES
+                </button>
+            </span>
+            <span>
+                <input class="form-control search" type="search" name="search" placeholder="Search" ng-model="searchText" style="float:left;">
+            </span>
+        </div>
+        <div class="col-md-4">
+            <button ng-click="addVehicle()" style ="float:right; margin-right:17px;" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Add vehicle</button>
+        </div>
+    </div>
+    <br />
+    <div class="row vehicle-list" style="width: 98%; margin-left:3px;" ng-repeat="vehicle in vehicles | filter:(filterIndex ? {Type:filterIndex} : '') | filter: (searchText ? searchText : '')">
+        <div class="col-md-2">
+            <div class="type-image fa fa-car" ng-if="vehicle.Type == 1"></div>
+            <div class="type-image fa fa-bus" ng-if="vehicle.Type == 3"></div>
+            <div class="type-image fa fa-train" ng-if="vehicle.Type == 2"></div>
+            <div class="type-image fa fa-bicycle" ng-if="vehicle.Type == 4"></div>
+            <div class="type-image fa fa-motorcycle" ng-if="vehicle.Type == 5"></div>
+            <div class="type-image fa fa-truck" ng-if="vehicle.Type == 6"></div>
+        </div>
+        <div class="col-md-10" style="font-weight:bolder;">
+            <div class="col-md-3" style="margin: 5px; padding-top:10px; ">
+                <b style="letter-spacing:1px;">MODEL</b><p style="opacity:0.8; padding-top:2px;">{{vehicle.Model}}</p>
+            </div>
+            <div class="col-md-3" style="margin: 5px; padding-top:10px; ">
+                <b style="letter-spacing:1px;">LICENSE</b><p style="opacity:0.8; padding-top:2px;">{{vehicle.License}}</p>
+            </div>
+            <div class="col-md-2" style="float:right; padding-top:20px;">
+                <button class="btn btn-warning" ng-click="editVehicle(vehicle.Id)"><span class="glyphicon glyphicon-pencil"></span>   Edit</button>
+            </div>
+            <div class="col-md-2" style="float:right;padding-top:20px;">
+                <button class="btn btn-danger" ng-click="deleteVehicle(vehicle.Id)"><span class="glyphicon glyphicon-trash"></span>   Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

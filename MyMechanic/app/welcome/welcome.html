@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-8 about-us-wrapper">
+            <div class="row welcome-content">
+                <h2>Welcome!</h2>
+                <h3>About us</h3>
+                <h4 class="mechanic-user">For mechanics</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <h4 class="mechanic-user">For users</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="sign-in-form" >
+                <form name="form">
+                    <div class="form-group">
+                        <label for="email">Email <span class="text-danger">*</span></label>
+                        <input required name="email" ng-model="signInModel.Email" type="email" class="form-control" id="email" placeholder="email@provider.com">
+                        <p class="text-danger" ng-if="submitted && form.email.$invalid">This field is required</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password <span class="text-danger">*</span></label>
+                        <input required name="password" ng-model="signInModel.Password" type="password" class="form-control" id="password" placeholder="Your password">
+                        <p class="text-danger" ng-if="submitted && form.password.$invalid">This field is required</p>
+                    </div>
+                    <input name="type" ng-model="isMechanic" type="checkbox" id="type"> I am mechanic
+                </form>
+            </div>
+            <br />
+
+            <button class="btn btn-primary" type="button" ng-click="signIn(form)">Sign in</button>
+            <br />
+            <br />
+            <button class="btn btn-block btn-register btn-default" ng-click="summonRegisterUserDialog()">REGISTER AS USER</button>
+            <button class="btn btn-block btn-register btn-default" ng-click="summonRegisterMechanicDialog()">REGISTER AS MECHANIC</button>
+        </div>
+    </div>
+</div>

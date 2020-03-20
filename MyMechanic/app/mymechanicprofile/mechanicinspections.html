@@ -1,0 +1,47 @@
+﻿<div class="tab-render" style="border-top-left-radius:10px; border-top-right-radius:10px; padding:30px; height:auto;">
+    <div class="row search-vehicles" style="margin-left: 0px; margin-bottom: 20px; width: 96%;">
+        <div class="col-md-3">
+            <button class="btn-block btn btn-danger" ng-click="filter('pending')"> PENDING</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-block  btn-warning" ng-click="filter('in-progress')">IN PROGRESS</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-block btn-success" ng-click="filter('done')">DONE</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-block  btn-secondary" ng-click="filter('')">ALL</button>
+        </div>
+    </div>
+
+        <div class="done-inspections">
+            <div class="row" ng-class="inspection.Status == -1 ? 'pending-inspection': inspection.Status == 0 ? 'in-progress-inspection' : 'done-inspection'" style="width:95%;"
+                 ng-repeat="inspection in myInspections | filter : { 'statusString': filterIndex }">
+                <div class="col-md-3 inspection-info">
+                    <div style="margin-bottom:5px;"><b>LICENSE PLATE</b></div>
+                    <div class="blurred">{{inspection.Vehicle.License}}</div><br />
+                    <div style="margin-bottom:5px;"><b>OWNER</b></div>
+                    <div class="blurred">{{inspection.Vehicle.Owner.Name}}</div>
+                </div>
+                <div class="col-md-3">
+                    <div style="margin-bottom:5px;"><b>PROBLEM</b></div>
+                    <div class="blurred">{{inspection.UserNote}}</div>
+                </div>
+                <div class="col-md-3">
+                    <div style="margin-bottom:5px;" ng-if="inspection.Status == 1"><b>SOLUTION</b></div>
+                    <div ng-if="inspection.Status == 1" class="blurred">{{inspection.MechanicNote}}</div>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-block btn-default" ng-click="changeStatus(inspection, 0)" ng-if="inspection.Status == -1" style="margin-top:35px; padding: 7px; "><div class="glyphicon glyphicon-flag" style="color: goldenrod; margin-right:5px;"></div>    Mark as in-progress</button>
+                    <button class="btn btn-block btn-default" ng-click="changeStatus(inspection, 1)" ng-if="inspection.Status == 0" style="margin-top:35px; padding: 7px; "><div class="glyphicon glyphicon-flag" style="color: green;  margin-right:5px;"></div>    Mark as done</button>
+                    <div ng-if="inspection.Status == 1 && inspection.Rating !=0">
+                        <div style="margin-bottom:5px;" ><b>RATING</b></div><div uib-rating ng-model="inspection.Rating" max="5" read-only="true" on-hover="hoveringOver(value)" on-leave="overStar = null"
+                        titles="['terrible','poor','average', 'good', 'excellent']" style="color: darkgoldenrod; "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+

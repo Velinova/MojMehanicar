@@ -1,0 +1,29 @@
+﻿<div class="container gridView">
+    <div class="col-md-12">
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Inspections</th>
+                    <th>Owner name</th>
+                    <th>License plate</th>
+                    <th>Model</th>
+                    <th>Type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="vehicle in vehicles">
+                    <td class="col-md-2"><span class="badge badge-primary" style="font-size:12pt;">{{vehicle.InspectionsCount}}</span></td>
+                    <td class="col-md-3">{{vehicle.OwnerName}}</td>
+                    <td class="col-md-3">{{vehicle.License}}</td>
+                    <td class="col-md-3">{{vehicle.Model}}</td>
+                    <td class="col-md-1" style="padding-right:20px;">{{vehicle.Type}}</td>
+
+                    <td style="text-align:center;"><button ng-click="summonDeleteDialog(vehicle.Id)" class="btn btn-sm btn-danger" style="float:right;" ><span class="glyphicon glyphicon-trash"></span>  Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

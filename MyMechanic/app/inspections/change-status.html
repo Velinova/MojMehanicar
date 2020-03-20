@@ -1,0 +1,29 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">×</button>
+    <h3 class="modal-title" id="modal-title">Change inspection status</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <pre>{{model|json}}</pre>
+    <div ng-if="status == 0">
+        Inspection status will be changed to IN_PROGRESS. Are you sure?
+    </div>
+
+    <div ng-if="status == 1">
+        <form name="form">
+            <div class="form-group ">
+                <label for="mechanicNote">Solution<span class="text-danger">*</span></label>
+                <textarea required name="mechanicNote" ng-model="model.MechanicNote" rows="5" class="form-control" id="mechanicNote" placeholder="Add solution note" />
+                <div ng-messages="form.mechanicNote.$error" ng-if="submitted && form.mechanicNote.$invalid">
+                    <p class="text-danger" ng-message="required">You must add note</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div ng-if="status == 1">
+        Inspection status will be changed to DONE. Are you sure?
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" ng-click="submit(form)">Yes</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">No</button>
+</div>

@@ -1,0 +1,145 @@
+﻿<div class="tab-render" style="border-top-left-radius:10px; border-top-right-radius:10px; padding:30px; height:auto;">
+    <div class="row new-inspection-form">
+        <h3 style="margin-top:0px!important; margin-left:15px;">New inspection</h3>
+        <form name="form" id="form">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="vehicle">Vehicle<span class="text-danger">*</span></label>
+                    <select name="vehicle"
+                            id="vehicle"
+                            class="form-control required"
+                            ng-required="true"
+                            ng-options=" vehicle as vehicle.Model for vehicle in vehicles track by vehicle.Id" ng-model="model.Vehicle">
+                        <option selected disabled value="">-- Select vehicle --</option>
+                    </select>
+                    <p class="text-danger" ng-if="submitted && !model.Vehicle">Choose vehicle</p>
+                </div>
+                <div class="form-group">
+                    <label for="mechanic">Mechanic<span class="text-danger">*</span></label>
+                    <select name="mechanic"
+                            id="mechanic"
+                            class="form-control required"
+                            ng-required="true"
+                            ng-options="mechanic as mechanic.CompanyName for mechanic in mechanics track by mechanic.Id" ng-model="model.Mechanic">
+
+                        <option selected disabled value="">-- Select mechanic --</option>
+                    </select>
+                    <p class="text-danger" ng-if="submitted && !model.Mechanic">Choose mechanic</p>
+                </div>
+            </div>
+            <div class="col-md-7"></div>
+            <div class="form-group">
+                <label style="margin-left: -470px;" for="userNote">My note:<span class="text-danger">*</span></label>
+                <textarea ng-model="model.UserNote" rows="6" style=" min-width: 50%;resize: vertical;" placeholder="What's wrong with your vehicle?" type="text" id="userNote" name="userNote" class=" form-control"></textarea>
+                <p class="text-danger" ng-if="submitted && !model.UserNote">Add problem description</p>
+            </div>
+        </form>
+        <div class="col-md-2">
+            <button class="btn btn-primary" ng-click="addInspection(form)"><span class="glyphicon glyphicon-plus"></span>   Create inspection</button>
+        </div>
+    </div>
+    <hr />
+   
+    <h3 style="margin-top:0px!important; margin-left:5px; margin-bottom:20px;">My inspections</h3>
+    <div class="pending-inspections">
+        <div class="pending-inspection row" style="width:95%;" ng-repeat="pending in pendingInspections">
+            <div class="col-md-2">
+                <b>VEHICLE</b><br /><br />
+                <p style="margin-bottom:0px!important;">{{pending.Vehicle.Model}}</p>
+                <p>{{pending.Vehicle.License}}</p>
+            </div>
+            <div class="col-md-2">
+                <b>MECHANIC</b><br /><br />
+                <p style="margin-bottom:0px!important;">{{pending.Mechanic.CompanyName}}</p>
+                <p>{{pending.Mechanic.City}}</p>
+            </div>
+            <div class="col-md-3" style="padding-top:0px!important;">
+                <b>MY NOTE</b><br /><br />
+                <p>{{pending.UserNote}}</p>
+            </div>
+            <div class="col-md-3" style="padding-top:0px!important;">
+
+            </div>
+            <div class="col-md-2" style="padding:0px!important;">
+                <br />
+                <button class="btn btn-danger" style="margin-bottom:7px;" ng-click="deleteInspection(pending.Id)">
+                    <span class="glyphicon glyphicon-remove"></span>Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class=" in-progress-inspections">
+        <div class="in-progress-inspection row" style="width:95%;" ng-repeat="inProgress in inProgressInspections">
+            <div class="col-md-2">
+                <b>VEHICLE</b><br /><br />
+                <p style="margin-bottom:0px!important;">{{inProgress.Vehicle.Model}}</p>
+                <p>{{inProgress.Vehicle.License}}</p>
+            </div>
+            <div class="col-md-2">
+                <b>MECHANIC</b><br /><br />
+                <p style="margin-bottom:0px!important;">{{inProgress.Mechanic.CompanyName}}</p>
+                <p>{{inProgress.Mechanic.City}}</p>
+            </div>
+            <div class="col-md-3" style="padding-top:0px!important;">
+                <b>MY NOTE</b><br /><br />
+                <p>{{inProgress.UserNote}}</p>
+            </div>
+            <div class="col-md-3" style="padding-top:0px!important;"></div>
+            <div class="col-md-2" style="padding:0px!important;">
+                <br />
+                <button class="btn btn-danger" disabled style="margin-bottom:7px;">
+                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class=" done-inspections">
+        <div class="done-inspection row" style="width:95%;" ng-repeat="done in doneInspections">
+            <div class="col-md-2">
+                <b>VEHICLE</b><br /><br />
+                <p style="margin-bottom:0px!important;">{{done.Vehicle.Model}}</p>
+                <p>{{done.Vehicle.License}}</p>
+            </div>
+            <div class="col-md-2">
+                <b>MECHANIC</b><br /><br />
+                <p style="margin-bottom:0px!important;">{{done.Mechanic.CompanyName}}</p>
+                <p>{{done.Mechanic.City}}</p>
+            </div>
+            <div class="col-md-3" style="padding-top:0px!important;">
+                <b>MY NOTE</b><br /><br />
+                <p>{{done.UserNote}}{{done.Rating}}</p>
+            </div>
+            <div class="col-md-3" style="padding-top:0px!important;">
+                <b>MECHANIC NOTE</b><br /><br />
+                <p style=" padding-right:10px;">{{done.MechanicNote}}</p>
+            </div>
+            <div class="col-md-2" style="padding:0px!important;">
+                <div class="has-rating" ng-if="done.Rating != 0 && show==false">
+                    <b>RATING</b><br /><br />
+                    <p><span class="glyphicon glyphicon-star"></span> {{done.Rating}} stars</p>
+                </div>
+                <div class="not-add-rating" ng-if="!show && done.Rating == 0">
+                    <br />
+                    <button class="btn btn-warning" style="margin-bottom:7px;" ng-click="changeShow(done.Id)">
+                        <span class="glyphicon glyphicon-star"></span> Rate
+                    </button>
+                </div>
+                <div class="add-rating" ng-if="show && showId == done.Id ">
+                    <b>ADD REVIEW</b><br /><br />
+                    <div uib-rating ng-model="updatemodel.Rating" max="5" read-only="false" on-hover="hoveringOver(value)" on-leave="overStar = null"
+                        titles="['terrible','poor','average', 'good', 'excellent']" >
+                    </div>
+                    <button class="btn btn-success" ng-click="submitRating()">
+                        <span class="glyphicon glyphicon-check"></span> Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    
+

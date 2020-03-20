@@ -1,0 +1,43 @@
+﻿<div class="tab-render" style="border-top-left-radius:10px; border-top-right-radius:10px; padding:30px; height:auto;">
+    <div class="input-group br">
+        <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="clear()" title="Clear search text">
+                <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+        </span>
+        <input class="form-control search" type="search" name="search" placeholder="Search" ng-model="searchText" style="float:left;">
+        <span class="input-group-btn" style="float:left;">
+
+            <div class="dropdown" >
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" title="Search by criteria">
+                    <span class="glyphicon glyphicon-search"></span>
+                    Order by
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="dynamicOrderBy('rating', true)">highest average rating</a></li>
+                    <li><a ng-click="dynamicOrderBy('rating', false)">lowest average rating</a></li>
+                    <li><a ng-click="dynamicOrderBy('inspectionCount', false)">number of inspections ascending</a></li>
+                    <li><a ng-click="dynamicOrderBy('inspectionCount', true)">number of inspections descending</a></li>
+                </ul>
+            </div>
+        </span>
+    </div>
+    <br />
+    <div class="row mechanic-item" ng-repeat="mechanic in list | orderBy: searchCriteria:ascdes | filter: searchText">
+        <div class="col-md-12" style="border-bottom: 2px solid whitesmoke;">
+            <h3 class="mechanic-item-title" style="font-size: 17pt; letter-spacing:1.5px; opacity:0.9"><b>{{mechanic.CompanyName}}</b></h3>
+        </div>
+        <div class="col-md-6">
+            <h4 class="mechanic-item-title">RATINGS</h4>
+            <div uib-rating ng-model="mechanic.AverageRating" max="5" read-only="true" on-hover="hoveringOver(value)" on-leave="overStar = null"
+                 titles="['terrible','poor','average', 'good', 'excellent']" style="font-size: 20pt; color: darkgoldenrod; text-align:center;"></div><br />
+            <div id="averageRating">{{mechanic.AverageRating | number : 2}}</div>
+            <div id="rating-text">{{mechanic.RatingCount}} out of {{mechanic.InspectionsCount}}</div>
+        </div>
+        <div class="col-md-6">
+            <h4 class="mechanic-item-title">INSPECTIONS</h4>
+            <h4 id="inspectionCount">{{mechanic.InspectionsCount}}</h4>
+        </div>
+    </div>
+</div>

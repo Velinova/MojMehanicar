@@ -1,0 +1,318 @@
+﻿<div class=" container container-profile">
+    <div class="row my-profile">
+        <div class="col-md-3 left-panel">
+            <div class="image-cog">
+                <div class="fa fa-cogs" style="font-size:80pt;"></div>
+            </div>
+           
+            <div class="menu">
+                <ul class="list-group">
+                    <li ng-class="{'active-item': activeItem == '2'}" class="list-group-item" ng-click="changeActiveItem(2)">MY VEHICLES</li>
+                    <li ng-class="{'active-item': activeItem == '3'}" class="list-group-item" ng-click="changeActiveItem(3)">MY INSPECTIONS</li>
+                    <li ng-class="{'active-item': activeItem == '4'}" class="list-group-item" ng-click="changeActiveItem(4)">PREVIEW MECHANICS</li>
+                    <li ng-class="{'active-item': activeItem == '1'}" class="list-group-item" ng-click="changeActiveItem(1)">ACCOUNT SETTINGS</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 center-panel">
+            <div class="account-settings" ng-if="activeItem == '1'">
+                <ul class="nav nav-tabs center-panel-tabs" style="font-size:larger;">
+                    <li ng-class="{'active-tab': activeTab == 1}" ng-click="changeActiveTab(1)">
+                        Personal Info
+                    </li>
+                    <li ng-class="{'active-tab': activeTab == 2}" ng-click="changeActiveTab(2)">
+                        Account
+                    </li>
+                    <li ng-class="{'active-tab': activeTab == 3}" ng-click="changeActiveTab(3)">
+                        Privacy
+                    </li>
+                </ul>
+                <div class="personal-info tab-render" ng-if="activeTab == 1">
+                    <div class="row">
+                        <form name="update-personal-info-form" id="update-personal-info-form">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="name">Name<span class="text-danger">*</span></label>
+                                        <input required name="name" ng-model="user.Name" type="text" class="form-control" id="name" placeholder="Your name" />
+                                        <div ng-messages="update-personal-info-form.name.$error" ng-if="submitted && update-personal-info-form.name.$invalid">
+                                            <p class="text-danger" ng-message="required">Name is required field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="surname">Surname<span class="text-danger">*</span></label>
+                                        <input required name="surname" ng-model="user.Surname" type="text" class="form-control" id="surname" placeholder="Your surname" />
+                                        <div ng-messages="update-personal-info-form.surname.$error" ng-if="submitted && update-personal-info-form.surname.$invalid">
+                                            <p class="text-danger" ng-message="required">Surname is required field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="city">City<span class="text-danger">*</span></label>
+                                        <input required name="city" ng-model="user.City" type="text" class="form-control" id="city" placeholder="Your city" />
+                                        <div ng-messages="update-personal-info-form.city.$error" ng-if="submitted && update-personal-info-form.city.$invalid">
+                                            <p class="text-danger" ng-message="required">City id required field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="country">Country<span class="text-danger">*</span></label>
+                                        <input required name="country" ng-model="user.Country" type="text" class="form-control" id="country" placeholder="Your country" />
+                                        <div ng-messages="update-personal-info-form.country.$error" ng-if="submitted && update-personal-info-form.country.$invalid">
+                                            <p class="text-danger" ng-message="required">Country is required field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="address">Address<span class="text-danger">*</span></label>
+                                    <input required name="address" ng-model="user.Address" type="text" class="form-control" id="address" placeholder="Your address" />
+                                    <div ng-messages="update-personal-info-form.address.$error" ng-if="submitted && update-personal-info-form.address.$invalid">
+                                        <p class="text-danger" ng-message="required">Address is required field</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="postalCode">Postal Code <span class="text-danger">*</span></label>
+                                    <input required name="postalCode" ng-model="user.PostalCode" type="text" pattern="[0-9]{4}" class="form-control" id="postalCode" placeholder="Four digit postal code" />
+                                    <div ng-messages="update-personal-info-form.postalCode.$error" ng-if="submitted && update-personal-info-form.postalCode.$invalid">
+                                        <p class="text-danger" ng-message="required">Postal code is required field</p>
+                                        <p class="text-danger" ng-message="pattern">Invalid postal code format</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="margin-left:35px; margin-top:20px;">
+                                <button ng-click="updatePersonlInfo(update-personal-info-form)" class="btn btn-primary btn-block">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--<div class="personal-info tab-render" ng-if="activeTab == 1 && isMechanic == 'true'">
+            <div class="row">
+                <br />
+                <form name="update-personal-info-form" id="update-personal-info-form">
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="companyName">Company name<span class="text-danger">*</span></label>
+                                <input required name="companyName" ng-model="mechanic.CompanyName" type="text" class="form-control" id="companyName" placeholder="Your name" />
+                                <div ng-messages="update-personal-info-form.companyName.$error" ng-if="submitted && update-personal-info-form.companyName.$invalid">
+                                    <p class="text-danger" ng-message="required">Company name is required field</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="city">City<span class="text-danger">*</span></label>
+                                <input required name="city" ng-model="mechanic.City" type="text" class="form-control" id="city" placeholder="Your city" />
+                                <div ng-messages="update-personal-info-form.city.$error" ng-if="submitted && update-personal-info-form.city.$invalid">
+                                    <p class="text-danger" ng-message="required">City id required field</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Country<span class="text-danger">*</span></label>
+                                <input required name="country" ng-model="mechanic.Country" type="text" class="form-control" id="country" placeholder="Your country" />
+                                <div ng-messages="update-personal-info-form.country.$error" ng-if="submitted && update-personal-info-form.country.$invalid">
+                                    <p class="text-danger" ng-message="required">Country is required field</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="address">Address<span class="text-danger">*</span></label>
+                            <input required name="address" ng-model="mechanic.Address" type="text" class="form-control" id="address" placeholder="Your address" />
+                            <div ng-messages="update-personal-info-form.address.$error" ng-if="submitted && update-personal-info-form.address.$invalid">
+                                <p class="text-danger" ng-message="required">Address is required field</p>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="postalCode">Postal Code <span class="text-danger">*</span></label>
+                            <input required name="postalCode" ng-model="mechanic.PostalCode" type="text" pattern="[0-9]{4}" class="form-control" id="postalCode" placeholder="Four digit postal code" />
+                            <div ng-messages="update-personal-info-form.postalCode.$error" ng-if="submitted && update-personal-info-form.postalCode.$invalid">
+                                <p class="text-danger" ng-message="required">Postal code is required field</p>
+                                <p class="text-danger" ng-message="pattern">Invalid postal code format</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-3" style="margin-left:35px; margin-top:-52px;">
+                    <button ng-click="updatePersonlInfo(update-personal-info-form)" class="btn btn-primary btn-block">Save changes</button>
+                </div>
+            </div>
+        </div>-->
+                <div class="account tab-render" ng-if="activeTab == 2">
+                    <form name="update-account-info-form">
+                        <div class="col-md-6">
+                            <div class="form-group col-md-12">
+                                <label for="userName">Username<span class="text-danger">*</span></label>
+                                <input required name="userName" ng-model="user.UserName" type="text" class="form-control" id="userName" placeholder="Your username" />
+                                <div ng-messages="update-account-info-form.userName.$error" ng-if="submitted && update-account-info-form.userName.$invalid">
+                                    <p class="text-danger" ng-message="required">Username is required field</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="email">Email<span class="text-danger">*</span></label>
+                                <input required name="email" ng-model="user.Email" type="email" class="form-control" id="email" placeholder="email@provider.com" />
+                                <div ng-messages="update-account-info-form.email.$error" ng-if="submitted && update-account-info-form.email.$invalid">
+                                    <p class="text-danger" ng-message="email">Invalid email format</p>
+                                    <p class="text-danger" ng-message="required">Email is required field</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-12">
+                                    <label for="oldpassword">Old password<span class="text-danger">*</span></label>
+                                    <input required name="oldpassword" ng-model="oldPassword" type="password" class="form-control" ng-minlength="6" />
+                                    <div ng-messages="update-account-info-form.oldpassword.$error" ng-if="submitted && update-account-info-form.oldpassword.$invalid">
+                                        <p class="text-danger" ng-message="required">Password is required field</p>
+                                        <p class="text-danger" ng-message="minlength">Password must have 6 characters</p>
+                                        <p class="text-danger" ng-if="oldPasswordInvalid">Old password is invalid</p>
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="newpassword">New password<span class="text-danger">*</span></label>
+                                    <input required name="newpassword" ng-model="newPassword" type="password" class="form-control" ng-minlength="6" />
+                                    <div ng-messages="update-account-info-form.newpassword.$error" ng-if="submitted && update-account-info-form.newpassword.$invalid">
+                                        <p class="text-danger" ng-message="required">Password is required field</p>
+                                        <p class="text-danger" ng-message="minlength">Password must have 6 characters</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="margin-left:35px; margin-top:20px;">
+                            <button ng-click="updateAccountInfo(update-account-info-form)" class="btn btn-primary btn-block">Save changes</button>
+                        </div>
+                    </form>
+
+                    <div class="privacy tab-render">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="account tab-render" ng-if="activeTab == 2 && isMechanic == 'true'">
+            <form name="update-account-info-form">
+                <div class="col-md-6">
+                    <div class="form-group col-md-12">
+                        <label for="userName">Username<span class="text-danger">*</span></label>
+                        <input required name="userName" ng-model="mechanic.UserName" type="text" class="form-control" id="userName" placeholder="Your username" />
+                        <div ng-messages="update-account-info-form.userName.$error" ng-if="submitted && update-account-info-form.userName.$invalid">
+                            <p class="text-danger" ng-message="required">Username is required field</p>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="email">Email<span class="text-danger">*</span></label>
+                        <input required name="email" ng-model="mechanic.Email" type="email" class="form-control" id="email" placeholder="email@provider.com" />
+                        <div ng-messages="update-account-info-form.email.$error" ng-if="submitted && update-account-info-form.email.$invalid">
+                            <p class="text-danger" ng-message="email">Invalid email format</p>
+                            <p class="text-danger" ng-message="required">Email is required field</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group col-md-12">
+                        <div class="form-group col-md-12">
+                            <label for="oldpassword">Old password<span class="text-danger">*</span></label>
+                            <input required name="oldpassword" ng-model="oldPassword" type="password" class="form-control" ng-minlength="6" />
+                            <div ng-messages="update-account-info-form.oldpassword.$error" ng-if="submitted && update-account-info-form.oldpassword.$invalid">
+                                <p class="text-danger" ng-message="required">Password is required field</p>
+                                <p class="text-danger" ng-message="minlength">Password must have 6 characters</p>
+                                <p class="text-danger" ng-if="oldPasswordInvalid">Old password is invalid</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="newpassword">New password<span class="text-danger">*</span></label>
+                            <input required name="newpassword" ng-model="newPassword" type="password" class="form-control" ng-minlength="6" />
+                            <div ng-messages="update-account-info-form.newpassword.$error" ng-if="submitted && update-account-info-form.newpassword.$invalid">
+                                <p class="text-danger" ng-message="required">Password is required field</p>
+                                <p class="text-danger" ng-message="minlength">Password must have 6 characters</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="margin-left:35px; margin-top:20px;">
+                    <button ng-click="updateAccountInfo(update-account-info-form)" class="btn btn-primary btn-block">Save changes</button>
+                </div>
+            </form>
+
+
+        </div>-->
+                <div class="privacy tab-render" ng-if="activeTab == 3">
+                    <div class="row">
+                        <table class="table table-light table-hover" style="margin: 0px 30px;">
+                            <tbody>
+                                <tr>
+                                    <td> Inform me if I sign in from another device. </td>
+                                    <td>
+                                        <div class="mt-radio-inline">
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios1" value="option1"> Yes
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios1" value="option2" checked="" style="margin-left:10px;"> No
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Everyone can see my profile. </td>
+                                    <td>
+                                        <div class="mt-radio-inline">
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios11" value="option1"> Yes
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios11" value="option2" checked="" style="margin-left:10px;"> No
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Everyone can sent me message. </td>
+                                    <td>
+                                        <div class="mt-radio-inline">
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios21" value="option1"> Yes
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios21" value="option2" checked="" style="margin-left:10px;"> No
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                            </tbody>
+                        </table>
+                        <div class="col-md-3" style="margin-left:35px; margin-top:20px;">
+                            <button ng-click="updateAccountInfo(update-account-info-form)" class="btn btn-primary btn-block">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-vehicles" ng-if="activeItem == '2'">
+                <myvehicles></myvehicles>
+            </div>
+            <div class="my-vehicles" ng-if="activeItem == '3'">
+                <myinspections></myinspections>
+            </div>
+            <div class="my-vehicles" ng-if="activeItem == '4'">
+                <listmechanics></listmechanics>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">×</button>
+    <h3 class="modal-title" id="modal-title">Add vehicle</h3>
+</div>
+<div class="modal-body" id="modal-body">
+
+    <form name="form">
+        <div class="form-group">
+            <label for="type">Type<span class="text-danger">*</span></label>
+            <select name="type"
+                    id="type"
+                    class="form-control required"
+                    ng-required="true"
+                    ng-options="type.key as type.value for type in types track by type.key" ng-model="model.Type">
+
+                <option selected disabled value="">-- Select type --</option>
+            </select>
+            <p class="text-danger" ng-if="typeEmpty">Choose type</p>
+        </div>
+        <div class="form-group">
+            <label for="model">Model:<span class="text-danger">*</span></label>
+            <input required ng-model="model.Model" ng-bind="model.Model" type="text" id="model" name="model" class="form-control" ng-required="true" />
+            <div ng-messages="form.model.$error" ng-if="submitted && form.model.$invalid">
+                <p class="text-danger" ng-message="required">Model is required field</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="license">License:<span class="text-danger">*</span></label>
+            <input required ng-model="model.License" ng-bind="model.License" type="text" id="license" name="license" class="form-control" ng-required="true" />
+            <div ng-messages="form.license.$error" ng-if="submitted && form.license.$invalid">
+                <p class="text-danger" ng-message="required">License is required field</p>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info" type="button" ng-click="submit(form)">Add</button>
+    <button class="btn btn-info" type="button" ng-click="cancel()">Cancel</button>
+</div>

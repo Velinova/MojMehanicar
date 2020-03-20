@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title MY MECHANIC</title>
+    <script src="https://kit.fontawesome.com/387d9c93de.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar li a {
+            font-size: 12pt;
+        }
+
+        .navbar-brand {
+            font-size: 16pt;
+        }
+    </style>
+</head>
+<body ng-app="codera.shopping">
+    
+
+    <nav class="navbar navbar-default" id="navigationBar" style="margin-top : 30px; margin-bottom:30px;" ng-controller="indexController">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span id="navbarspan"><a class="navbar-brand" ui-sref-opts="{reload:true}" style="font-weight:bold;">MY MECHANIC</a></span>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right" ng-if="user">
+                        <li ng-if=""ng-hide="user.Role == 1 || user.IsMechanic == false">
+                            <a ui-sref="myprofile">
+                                <span class="glyphicon glyphicon-user"></span>
+                                My profile
+                            </a>
+                        </li>
+                        <li uib-dropdown auto-close="outsideClick">
+                            <a uib-dropdown-toggle id="nav-dropdown"><span>  Hi,</span> {{user.Name}}   <span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span></a>
+                            <ul id="nav-dropdown-body" class="dropdown-menu menu-down" uib-dropdown-menu role="menu" ng-if="user">
+                                <li role="menuitem" ng-if="user.Role==1">
+                                    <a>
+                                        <span ng-click="statusToggle()">
+                                            Admin Panel
+                                            <span style="font-size:10px" ng-class="{'glyphicon-chevron-up':dropdownStatus,'glyphicon-chevron-down':!dropdownStatus}" class="glyphicon pull-right"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-show="dropdownStatus && user.Role==1" role="menuitem"><a ui-sref="admin-panel({id:0})">Users</a> </li>
+                                <li ng-show="dropdownStatus && user.Role==1" role="menuitem"><a ui-sref="admin-panel({id:1})">Mechanics </a> </li>
+                                <li ng-show="dropdownStatus && user.Role==1" role="menuitem"><a ui-sref="admin-panel({id:2})">Vehicles</a> </li>
+                                <li ng-show="dropdownStatus && user.Role==1" role="menuitem"><a ui-sref="admin-panel({id:3})">Inspections</a> </li>
+                                <li class="divider" style="height:0px; margin-bottom:0px; margin-top:0px; padding:1px; background-color:rgba(29,132,181,0.2)"></li>
+                                <li role="menuitem"><a ng-click="signOut()"><span class="glyphicon-log-out glyphicon"></span>      Sign out</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    
+                    
+
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </div>
+    </nav>
+    
+<div ui-view></div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/vendor")
+@Scripts.Render("~/bundles/app")
+</body>
+</html>

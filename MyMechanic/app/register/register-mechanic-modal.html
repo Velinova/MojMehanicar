@@ -1,0 +1,160 @@
+﻿
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">×</button>
+    <h3 class="modal-title" id="modal-title">Register mechanic</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form name="form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Company name<span class="text-danger">*</span></label>
+                    <input required name="name" ng-model="registerModel.CompanyName" type="text" class="form-control" id="name" placeholder="Your company name" />
+                    <div ng-messages="form.name.$error" ng-if="submitted && form.companyName.$invalid">
+                        <p class="text-danger" ng-message="required">Company name is required field</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="userName">Username<span class="text-danger">*</span></label>
+                <input required name="userName" ng-model="registerModel.UserName" type="text" class="form-control" id="userName" placeholder="Your username" />
+                <div ng-messages="form.userName.$error" ng-if="submitted && form.userName.$invalid">
+                    <p class="text-danger" ng-message="required">Username is required field</p>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">Email<span class="text-danger">*</span></label>
+                <input required name="email" ng-model="registerModel.Email" type="email" class="form-control" id="email" placeholder="email@provider.com" />
+                <div ng-messages="form.email.$error" ng-if="submitted && form.email.$invalid">
+                    <p class="text-danger" ng-message="email">Invalid email format</p>
+                    <p class="text-danger" ng-message="required">Email is required field</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="password">Password<span class="text-danger">*</span></label>
+                <input required name="password" ng-model="registerModel.Password" type="password" class="form-control" id="password" placeholder="Your password" ng-minlength="6" />
+                <div ng-messages="form.password.$error" ng-if="submitted && form.password.$invalid">
+                    <p class="text-danger" ng-message="required">Password is required field</p>
+                    <p class="text-danger" ng-message="minlength">Password must have 6 characters</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="confirmedPassword">Confirm password<span class="text-danger">*</span></label>
+                <input required name="confirmedPassword" ng-model="registerModel.ConfirmedPassword" type="password" class="form-control" id="confirmedPassword" ng-minlength="6" placeholder="Confirm password" />
+                <div ng-messages="form.confirmedPassword.$error" ng-if="submitted && form.confirmedPassword.$invalid">
+                    <p class="text-danger" ng-message="required">Password confirmation is required</p>
+                </div>
+                <p class="text-danger" ng-show="!passwordsMatch && submitted">Passwords do not match</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="city">City<span class="text-danger">*</span></label>
+                    <input required name="city" ng-model="registerModel.City" type="text" class="form-control" id="city" placeholder="Your city" />
+                    <div ng-messages="form.city.$error" ng-if="submitted && form.city.$invalid">
+                        <p class="text-danger" ng-message="required">City id required field</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="country">Country<span class="text-danger">*</span></label>
+                    <input required name="country" ng-model="registerModel.Country" type="text" class="form-control" id="country" placeholder="Your country" />
+                    <div ng-messages="form.country.$error" ng-if="submitted && form.country.$invalid">
+                        <p class="text-danger" ng-message="required">Country is required field</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="address">Address<span class="text-danger">*</span></label>
+                <input required name="address" ng-model="registerModel.Address" type="text" class="form-control" id="address" placeholder="Your address" />
+                <div ng-messages="form.address.$error" ng-if="submitted && form.address.$invalid">
+                    <p class="text-danger" ng-message="required">Address is required field</p>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="postalCode">Postal Code <span class="text-danger">*</span></label>
+                <input required name="postalCode" ng-model="registerModel.PostalCode" type="text" pattern="[0-9]{4}" class="form-control" id="postalCode" placeholder="Four digit postal code" />
+                <div ng-messages="form.postalCode.$error" ng-if="submitted && form.postalCode.$invalid">
+                    <p class="text-danger" ng-message="required">Postal code is required field</p>
+                    <p class="text-danger" ng-message="pattern">Invalid postal code format</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <button class="btn btn-success btn-block" ng-click="registerMechanic(form)">Free trial</button>
+            </div>
+            <div class="col-md-6 form-group">
+                <button class="btn btn-danger btn-block" ng-click="openSubscriptionForm()" type="button">Subscribe montly</button>
+            </div>
+        </div>
+    </form>
+    <form name="subscriptionForm" ng-if="showSubscriptionForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="holder">Card holder name<span class="text-danger">*</span></label>
+                    <input required name="holder" type="text" ng-model="model.Holder" class="form-control" id="holder" placeholder="">
+                    <div ng-messages="subscriptionForm.holder.$error" ng-if="submitted && subscriptionForm.holder.$invalid">
+                        <p class="text-danger" ng-message="required">Required field</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="cardNumber">Card number<span class="text-danger">*</span></label>
+                    <input required name="cardNumber" type="text" ng-model="model.CardNumber" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" ng-pattern="/^[0-9]{16}/" maxlength="16" only-numbers>
+                    <div ng-messages="subscriptionForm.cardNumber.$error" ng-if="submitted && subscriptionForm.cardNumber.$invalid">
+                        <p class="text-danger" ng-message="required">Required field</p>
+                        <p class="text-danger" ng-message="pattern">Invalid card number</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="cvc">CVC<span class="text-danger">*</span></label>
+                    <input required name="cvc" type="text" ng-model="model.CVC" class="form-control" id="cvc" placeholder="CVC" ng-pattern="/^[0-9]{3}/" maxlength="3" only-numbers>
+                    <div ng-messages="subscriptionForm.cvc.$error" ng-if="submitted && subscriptionForm.cvc.$invalid">
+                        <p class="text-danger" ng-message="required">Required field</p>
+                        <p class="text-danger" ng-message="pattern">Invalid cvc</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="expirationDate">Expiration date</label>
+                    <input required name="expirationDate" type="month" ng-model="model.ExpirationDate" class="form-control" id="expirationDate">
+                    <div ng-messages="subscriptionForm.expirationDate.$error" ng-if="submitted && subscriptionForm.expirationDate.$invalid">
+                        <p class="text-danger" ng-message="required">Required field</p>
+                        <p class="text-danger" ng-message="pattern">Invalid format</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="opacity:0.9">
+                <img class="img-responsive" src="../../Content/cards.jpg" />
+            </div>
+        </div>
+        <br />
+    </form>
+    <button ng-click="paySubscription(form)" class="btn btn-info" ng-if="showSubscriptionForm" >Submit</button>
+</div>
+<div class="modal-footer">
+    
+</div>

@@ -1,0 +1,31 @@
+﻿<div class="container gridView">
+    <div class="col-md-12">
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Company name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Address</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mechanic in mechanics">
+                    <td class="col-md-2">{{mechanic.CompanyName}}</td>
+                    <td class="col-md-2">{{mechanic.UserName}}</td>
+                    <td class="col-md-2">{{mechanic.Email}}</td>
+                    <td class="col-md-2">{{mechanic.City}}</td>
+                    <td class="col-md-2">{{mechanic.Country}}</td>
+                    <td class="col-md-2">{{mechanic.Address}}</td>
+                    
+                    <td title="{{ mechanic.Id == cookieId ? 'You cannot remove yourself' : '' }}"><button ng-click="summonDeleteDialog(mechanic.Id)" class="btn btn-sm btn-danger" ng-disabled="mechanic.Id == cookieId"><span class="glyphicon glyphicon-trash"></span>  Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

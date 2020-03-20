@@ -1,0 +1,691 @@
+﻿thead tr th:hover {
+    border-bottom: 2px solid #1D84B5;
+}
+tbody tr:hover {
+    background-color: rgba(29,132,181,0.1);
+}
+#logo{
+    height:50px;
+    width:50px;
+}
+.welcome-content p {
+    text-align: justify;
+}
+.welcome-content {
+    padding-right: 25px;
+}
+h4.mechanic-user {
+    font-weight: bold;
+    color: #176087;
+}
+body {
+    background-color: whitesmoke;
+}
+#navigationBar {
+    background-color: #53A2BE;
+    border-top: 4px solid #1D84B5;
+    border-bottom: 4px solid #1D84B5;
+}
+.btn-register {
+    padding: 10px;
+    font-size: 11pt;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid dimgray;
+    margin-bottom: 10px;
+    color: black;
+    box-shadow: lightgray 5px 5px 3px ;
+}
+.modal-body {
+    background-color: whitesmoke;
+}
+
+.modal-footer {
+    margin: 0px;
+    border-top: 2px solid #1D84B5;
+    background-color: lightblue;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.modal-header {
+    border-bottom: 2px solid #1D84B5;
+    background-color: lightblue;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.admin-panel-tabs li {
+    padding: 10px;
+    text-align: center;
+    width: 285px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 2px solid lightgray;
+}
+
+.admin-panel-tabs li:hover {
+    border-bottom: 2px solid #1D84B5;
+}
+
+.active-tab {
+    background-color: lightgray;
+    font-weight: 600;
+}
+.fa-cogs {
+    border-radius: 50%;
+    padding: 30px;
+}
+.left-panel {
+    text-align: center;
+    padding-top: 40px !important;
+    padding-bottom: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: inherit;
+}
+.list-group-item {
+    border: none;
+    font-size: 14pt;
+    color: gray;
+    text-align: left;
+    padding-left: 25px;
+    border-left: 5px solid white;
+    border-radius: 0%;
+    margin-left: 0px !important;
+}
+.list-group-item:hover {
+    border: none;
+    font-size: 14pt;
+    color: gray;
+    text-align: left;
+    padding-left: 25px;
+    border-left: 5px solid white;
+    border-radius: 0%;
+    margin-left: 0px !important;
+    cursor: pointer;
+}
+.list-group-item.active-item {
+    border: none;
+    font-size: 14pt;
+    color: gray;
+    text-align: left;
+    padding-left: 25px;
+    border-left: 5px solid dimgray;
+    background-color: rgba(29,132,181,0.1);
+    border-radius: 0%;
+    margin-left: 0px !important;
+    color: #176087;
+}
+.fa-cogs {
+    border-radius: 50%;
+    background-color: lightgray;
+    height:135pt;
+}
+.menu {
+    padding-top: 50px;
+    position: relative;
+}
+.center-panel-tabs li {
+    padding: 10px;
+    text-align: center;
+    width: 281px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 2px solid lightgray;
+}
+.center-panel-tabs li:hover {
+    border-bottom: 2px solid #1D84B5;
+}
+.my-profile{
+    height:500px !important;
+
+}
+.container-profile{
+    background-color:white;
+    margin-top: -40px;
+    padding-top:40px;
+    height:auto;
+    padding-bottom:30px;
+}
+.tab-render {
+    padding-top:30px;
+    background-color: whitesmoke;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 400px;
+}
+.privacy{
+    padding-right: 70px;
+}
+.btn-secondary {
+    margin-right: 15px;
+    background-color: lightgray;
+    font-size: 12pt;
+}
+.vehicle-list {
+    background-color: rgba(29,132,181,0.1);
+    margin-bottom: 10px;
+    padding: 0px !important;
+    border: 1px solid rgba(29,132,181,0.2);
+}
+.vehicle-list:hover {
+    background-color: rgba(29,132,181,0.2);
+}
+.type-image {
+    margin-top: 15px;
+    padding-left: 20px;
+    font-size: 50px;
+    color: #263f5c;
+}
+.hr-vehicle {
+    margin: 0px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    color: black !important;
+}
+.pending-inspection {
+    margin-left: 3px;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: rgba(29,132,181,0.1);
+    border: 1px solid rgba(29,132,181,0.2);
+    border-left: 3px solid #bf0000 !important;
+}
+.in-progress-inspection {
+    margin-left: 3px;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: rgba(29,132,181,0.1);
+    border: 1px solid rgba(29,132,181,0.2);
+    border-left: 3px solid #f0d50c !important;
+}
+.done-inspection {
+    margin-left: 3px;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: rgba(29,132,181,0.1);
+    border: 1px solid rgba(29,132,181,0.2);
+    border-left: 3px solid #0c9909 !important;
+}
+.pending-inspection p, .done-inspection p, .in-progress-inspection p{
+    opacity: 0.8;
+}
+.pending-inspections .row:hover{
+    background-color: rgba(29,132,181,0.2);
+}
+.done-inspections .row:hover {
+    background-color: rgba(29,132,181,0.2);
+}
+.in-progress-inspections .row:hover {
+    background-color: rgba(29,132,181,0.2);
+}
+.mechanic-item {
+    background-color: rgba(29,132,181,0.1);
+    margin-bottom: 15px;
+    width: 99%;
+    margin-left: 3px;
+    border: 1px solid rgba(29,132,181,0.2);
+    padding-bottom: 10px;
+}
+.mechanic-item:hover {
+    background-color: rgba(29,132,181,0.2);
+    margin-bottom: 15px;
+    width: 99%;
+    margin-left: 3px;
+    border: 1px solid rgba(29,132,181,0.3);
+    padding-bottom: 10px;
+}
+.mechanic-item-title {
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.8;
+    font-size: 14pt;
+    margin-top: 10px;
+    color: #13293D;
+}
+#averageRating{
+    text-align: center;
+    font-size:20pt;
+    margin-top: -20px;
+    opacity: 0.8;
+}
+#rating-text {
+    text-align: center;
+    font-size: 10pt;
+}
+#inspectionCount{
+    font-size: 30pt;
+    margin-top: 30px;
+    text-align: center;
+    opacity:0.8;
+}
+.blurred{
+    opacity:0.8;
+}
+/*--------------------------------------------------------------------*/
+* {
+    user-select: none;
+}
+body {
+    /*padding-bottom: 20px;
+    background: url(paws.png) no-repeat 0 50%;
+    background-position-x: 100px;
+    background-position-y:200px;
+    background-size: 150px 300px;*/
+}
+
+.paws{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    width: 150px;
+    height: 300px;
+    opacity: 0.4;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+label{
+    padding:7px;
+    padding-top:6px !important;
+}
+
+#navigationBar a {
+    color: #302725 !important;
+}
+
+span a.navbar-brand {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+}
+
+
+.gridView h1 {
+   margin-top: 35px;
+}
+.nav-pills li.item{
+    padding: 12px;
+    text-transform: uppercase;
+}
+.nav-pills li.item:hover {
+    border-left: 3px solid darksalmon;
+    background-color: rgba(255,140,122,0.15);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.nav-pills li.item:nth-child(1) {
+    border-top: 2px solid rgba(255,140,122,0.15);
+}
+.nav-pills li.item {
+    border-bottom: 2px solid rgba(255,140,122,0.15);
+    margin:0px;
+}
+#nav-dropdown {
+    background-color: rgba(233,150,122,0.0);
+    text-align:center;
+    padding-right:20px;
+    padding-left:25px;
+}
+
+#nav-dropdown-body a {
+    margin: 5px;
+}
+#nav-dropdown-body a:hover {
+    background-color:white;
+}
+#nav-dropdown-body {
+    margin-top: 3px !important;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+#sidebar-wrapper {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+.products-list-wrapper {
+    background-color: white;
+    padding: 20px!important;
+    border-radius: 5px;
+}
+
+.background-container {
+    margin-top: 0px;
+    background-size: 90px 52px;
+    background-repeat: repeat;
+}
+.card-col {
+    border-radius: 10px;
+    background-color: seashell;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.card-col:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.3);
+}
+.card-header {
+    text-align: center;
+    padding: 15px;
+    color: black;
+    height: 80px;
+    text-decoration:none;
+}
+.img-thumbnail {
+    height: 130px;
+    background-color:rgba(233,150,122,0.4);
+}
+.description {
+    text-align: left;
+    font-size: 14pt;
+}
+.price{
+    padding-top:0px !important;
+    font-size: 13pt;
+    padding-top: 15px;
+    padding-left:10px;
+    font-weight:bold;
+}
+.card-body button{
+    display:block;
+}
+.description{
+    height:50px;
+    font-size:11pt;
+    font-weight:lighter;
+    text-align:center;
+}
+div.col-md-4.col-group{
+    margin:0px !important; 
+    padding:0px !important;
+}
+.col-md-3{
+    padding:5px;
+}
+
+.button-create{
+    border: 2px solid rgba(189, 54, 35, 0.92);
+    border-radius: 5px;
+    color:black;
+    background-color: white;
+}
+.btn-cart {
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 14pt;
+    margin-top: 5px;
+}
+.btn-cart:hover{
+    color:white;
+    text-decoration:none;
+}
+.btn-link:hover {
+    color: black;
+}
+.btn-link {
+    color: black;
+    padding-top: 0px !important;
+    font-size: 13pt;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+.btn-my-orders{
+    width:150px !important;
+    text-align:center;
+}
+.form-control:focus {
+    border-color: rgb(191, 191, 191);
+    box-shadow: 0 0 8px rgb(191, 191, 191);
+}
+.btn-success.btn-add {
+    font-size:12pt;
+    border: 0.5px solid lightgray;
+    background-color:darkgray;
+    
+}
+.col-chevron {
+    width: 5%;
+}
+
+.col-table{
+    width: 16%;
+}
+.order:hover {
+    box-shadow: 0 0 8px rgb(191, 191, 191);
+}
+.canceled{
+    border-left: 8px solid red;
+}
+.disputed {
+    border-left: 8px solid darkred;
+}
+.frozen {
+    border-left: 8px solid deepskyblue;
+}
+.shipped {
+    border-left: 8px solid darkgoldenrod;
+}
+.paid {
+    border-left: 8px solid blue;
+}
+.delivered {
+    border-left: 8px solid green;
+}
+.sort-date {
+    font-size: larger;
+    color: white;
+    background-color: dimgray;
+    margin:5px;
+}
+.sort-delivered {
+    background-color: green;
+    font-size: larger;
+    color: white;
+    margin: 5px;
+}
+.sort-paid {
+    background-color: blue;
+    font-size: larger;
+    color: white;
+    margin: 5px;
+}
+.sort-shipped {
+    background-color: darkgoldenrod;
+    font-size: larger;
+    color: white;
+    margin: 5px;
+}
+.sort-frozen {
+    background-color: deepskyblue;
+    font-size: larger;
+    color: white;
+    margin: 5px;
+}
+.sort-disputed {
+    background-color: darkred;
+    font-size: larger;
+    color: white;
+    margin: 5px;
+}
+.sort-canceled {
+    background-color: red;
+    font-size: larger;
+    color: white;
+    margin: 5px;
+}
+.label-delivered {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius:5px;
+    width: 80px;
+    text-align:center;
+}
+.label-paid {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+.label-shipped {
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+.label-frozen {
+    background-color: deepskyblue;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+.label-disputed {
+    background-color: darkred;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+.label-canceled {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .value-button:hover {
+        cursor: pointer;
+    }
+
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    padding:5px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .value-button:hover {
+        cursor: pointer;
+    }
+
+#decrease {
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+}
+
+#increase {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+}
+
+#input-wrap {
+    margin: 0px;
+    padding: 0px;
+}
+
+input#number {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px!important;
+    width: 40px;
+    height: 40px;
+    display:inline !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.nav > li > a:hover {
+    text-decoration: none;
+    color: black;
+    background-color: rgba(255,140,122,0.15) !important;
+}
+.nav li.active a{
+    background-color: rgba(230,140,122,0.45)!important;
+    font-weight:bold;
+}
+.nav li a{
+    color:black;
+}
+/*progress bar*/
+.progress-bar-excellent {
+    background-color: #57C245;
+}
+.progress-bar-good {
+    background-color: #C0DB1F;
+}
+.progress-bar-average {
+    background-color: #DAE147;
+}
+.progress-bar-poor {
+    background-color: #DDA32F;
+}
+.progress-bar-terrible {
+    background-color: #DD562F;
+}
+
+.ratings-container{
+    background-color: whitesmoke;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding:30px;
+
+}
+.rating-panel {
+    margin-top:40px; 
+    background-color:whitesmoke;
+    border-radius:2px;
+}
